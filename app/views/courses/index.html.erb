@@ -1,0 +1,22 @@
+<h1>All the courses </h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Name: 
+            </th>
+            <th>
+                Number:
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @courses.each do |course| %> 
+        <tr>
+            <td><%= course.name %></td>
+            <td><%= course.number %></td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>

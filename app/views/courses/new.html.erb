@@ -1,0 +1,10 @@
+<h1>Create a course</h1>
+
+<%= form_with(model: @course) do |form| %> 
+  <%= form.label :name, "Name of Course" %> 
+  <%= form.text_field :name %> 
+
+  <%= form.label :number, "Course Number" %> 
+  <%= form.text_field :number %>
+  <%= form.submit %> 
+<% end %>

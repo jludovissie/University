@@ -1,0 +1,10 @@
+<h1>Create a new Degree</h1>
+
+<%= form_with(model: @degree, url: degrees_path) do |form| %> 
+  <%= form.label :department, "Department:" %> 
+  <%= form.text_field :department %>  
+  <%= form.label :major, "Major:"  %>
+  <%= form.text_field :major %>
+  <%= form.submit "Add Degree to University Curriculum" %> 
+
+<% end %> 
