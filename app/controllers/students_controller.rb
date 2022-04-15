@@ -13,10 +13,11 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(student_params)
-        @student.degree = helpers.current_student 
+        # @student.degree = helpers.current_student 
         if @student.save 
-            flash[:notice] = "Thank you for creating your account #{@student.username},  next step is to apply! "
-            redirect_to students_path
+            session[:student_id] = @student.id
+            flash[:notice] = "Congratulations, #{@student.name}!  You have been accepted to Paducah Business School! "
+            redirect_to @student
         else 
             render 'new'    
         end
@@ -28,7 +29,6 @@ class StudentsController < ApplicationController
 
     def update 
        @student = Student.find(params[:id])
-
         if @student.update(student_params)
            flash[:notice] = "Your account information was successfully updated"
            redirect_to @student
@@ -44,10 +44,25 @@ class StudentsController < ApplicationController
         # redirect_to root_path
     end
 
+    def degree_list
+        @student = Student.find_by_id(params[:major])
+     
+    end
+
+    def major_select 
+        if helpers.current_student.update(degree_id: params[:major])
+            flash[:success] = "Congratulations, you just selected a major!"
+            redirect_to helpers.current_student
+        else  
+            flash[:notice] = "Did not work" 
+            redirect_to root_path    
+        end
+    end
 
     private 
 
     def student_params 
-        params.require(:student).permit(:username, :email, :password)
+        params.require(:student).permit(:username, :email, :age, :name, :act_score, :gpa, :password)
     end
-end
+end    
+

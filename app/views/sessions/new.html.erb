@@ -1,0 +1,35 @@
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a id ="topper" class="navbar-brand" href="#">
+      <img src= https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100" height="88" class="d-inline-block align-text-top">
+          Paducah Business School 
+      </a>
+    </div>
+</nav>    
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Ready to Apply? </h3>
+                    <p>This form will create your account and submit an application.</p>
+                    <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
+                    <div class="col-md-12">
+                        <%= form.label :email, class: "col-sm-2 col-form-label" %>
+                        <%= form.email_field :email, class: "form-control" %>
+                      </div> 
+                      <div class="col-md-12">
+                        <%= form.label :password, class: "col-sm-2 col-form-label" %>
+                        <%= form.text_field :password, class: "form-control" %>
+                      </div>
+                        <%= form.submit "Login",  class: "btn btn-primary" %>
+                    <div>
+                    <% end %>  
+                      <%= link_to "Student Roster" , students_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

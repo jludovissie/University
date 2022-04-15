@@ -1,8 +1,37 @@
-<h1>List of Student Directory</h1>
+<!-- <h1>List of Student Directory</h1>
 
 
     <div>
       <% @students.each do |student| %>
       <%= student.username %>
       <% end %>
-    </div>
+    </div> -->
+<div class="container-fluid bg-dark">
+  <a id ="topper" class="navbar-brand" href="#">
+      <img src= https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100" height="88" class="d-inline-block align-text-top">
+      Paducah Student Directory
+  </a>
+</div>
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+        <th>Name:</th>
+        <th>major:</th>
+        <th>email:</th>
+        <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @students.each do |student| %>
+        <tr>
+        <td><%= link_to "#{student.name}" , student_path(student) %></td>
+        <td><%= student.age %></td>
+        <td><%= student.major%></td>
+        <td><%= student.email%></td>
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+    
+    
+    

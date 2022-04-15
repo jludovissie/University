@@ -1,0 +1,24 @@
+<p>You have just been accepted to Paducah Business school.  Now what??? Lets get you enrolled with your major.</p>
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Pick your major!</h3>
+                    <p></p>
+                    <%= form_with(model: @student, method: :post) do |form| %>
+                    <div class="col-md-12">
+                        <%= form.label :major, class: "col-sm-2 col-form-label" %>
+                        <%= form.collection_select(:major, Degree.all, :id, :major)%>
+                    </div>
+                        <%= form.submit  class: "btn btn-primary" %>
+                    <div>
+                    <% end %>  
+                      <%= link_to "Student Roster" , students_path, class: "btn btn-primary" %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

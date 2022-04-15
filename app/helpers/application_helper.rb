@@ -1,6 +1,6 @@
 module ApplicationHelper
     def current_student
-        User.find(session[:user_id]) if session[:user_id]
+      @current_student ||= Student.find(session[:student_id]) if session[:student_id]
     end
 
     def logged_in? 

@@ -5,12 +5,15 @@ Rails.application.routes.draw do
 
   resources :degrees
   get 'apply', to: 'students#new'
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
+  get 'major', to: 'students#degree_list'
+  post 'major', to: 'students#major_select'
+
   resources :students, except: [:new]
   resources :courses 
  
-
 end

@@ -1,0 +1,26 @@
+<nav class="navbar sticky-top navbar-dark">
+    <div class="container-fluid">
+      <a id ="topper" class="navbar-brand" href="#">
+      <img src= https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100" height="88" class="d-inline-block align-text-top">
+          Paducah Business School 
+      </a>
+    </div>
+    <div id="nav" class="container-fluid">
+      
+        <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to current_student.username , student_path(current_student), class:"nav_link" %>
+        </li>
+          <%= link_to "Log out" , logout_path, class: "nav-link", method: :delete%>
+        <% else %>
+          <%= link_to "Log in" , login_path, class: "nav-link" %>
+        <% end %>  
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Students', students_path, class:'nav-item' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Apply Today" , apply_path %>
+      </li>
+    </div>
+    </nav>
