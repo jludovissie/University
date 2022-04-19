@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <a id ="topper" class="navbar-brand" href="#">
+        <img src= https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100" height="88" class="d-inline-block align-text-top">
+      Faculty
+    </a>
+  </div>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+          <th>Name:</th>
+          <th>Title:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @admins.each do |admin| %>
+          <tr>
+          <td><%= link_to "#{@admins.name}" , admin_path(admin) %></td>
+      
+          </tr>
+          <% end %>
+        </tbody>
+    </table>

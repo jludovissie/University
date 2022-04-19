@@ -52,12 +52,14 @@ class StudentsController < ApplicationController
     def major_select 
         if helpers.current_student.update(degree_id: params[:major])
             flash[:success] = "Congratulations, you just selected a major!"
-            redirect_to helpers.current_student
+            redirect_to courses_path
         else  
             flash[:notice] = "Did not work" 
             redirect_to root_path    
-        end
+        end   
     end
+
+   
 
     private 
 

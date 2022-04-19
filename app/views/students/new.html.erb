@@ -39,11 +39,12 @@
                         <%= form.label :extra_curricular, class: "col-sm-2 col-form-label" %>
                         <%= form.text_area :extra_curricular, rows: 10, class: "form-control" %>
                     </div>
-                        <%= form.submit  class: "btn btn-primary" %>
-                    <div>
-                    <% end %>  
-                      <%= link_to "Student Roster" , students_path, class: "btn btn-primary" %>
-                    </div>
+                    <div class="col-md-12">
+                        <%= form.submit  class: "btn btn-primary" %>                  
+                      <% end %>  
+                        <%= link_to "Login", login_path, class: "btn btn-primary" %>
+                    </div>                  
+                  </div>
                 </div>
             </div>
         </div>

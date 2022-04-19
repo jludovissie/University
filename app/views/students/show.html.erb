@@ -22,16 +22,19 @@
     </div>
     <div>
         <ul class="list-unstyled list">
-            <li> <span class="font-weight-bold">Schedule</span>
-                <div> <span class="mr-1">5</span> <i class="fa fa-angle-right"></i> </div>
-            </li>
-            <li> <span class="font-weight-bold">Grades</span>
-                <div> <span class="mr-1">45</span> <i class="fa fa-angle-right"></i> </div>
-            </li>
-            <li> <span class="font-weight-bold">Activities</span>
-                <div> <span class="mr-1">15</span> <i class="fa fa-angle-right"></i> </div>
-            </li>
+            <span class="font-weight-bold"><h2>Schedule</h2></span>
+                <li>
+                   <% @student.courses.each do |course|  %>
+                    <span class="mr-1" style="color:white"><%= course.name %><i class="fa fa-angle-right"></i> 
+                   <% end %>
+                </span>
+                </li>
+
+             
+             
+ 
         </ul>
+   
     </div>
 </div>
 </div>

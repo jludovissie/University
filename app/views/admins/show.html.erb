@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://images.unsplash.com/photo-1629425733761-caae3b5f2e50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGhlYWRzaG90fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= @admin.name %></h5>
+    <p class="card-text">  <%= @admin.description %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">  <%= @admin.email %></li>
+    <li class="list-group-item">  <%= @admin.phone %></li>
+    <li class="list-group-item">  <%= @admin.address %></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Schedule Classes</a>
+    <a href="#" class="card-link">Apply</a>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Edit your Employee Account!</h3>
+                    <p>Welcome to the Paducah Business Family.  Your are molding tomorrows business leaders</p>
+                    <%= form_with(model: @admin) do |form| %>
+                    <div class="col-md-12">
+                        <%= form.label :name, class: "col-sm-2 col-form-label" %>
+                        <%= form.text_field :name, class: "form-control" %>
+                    </div>
+                    <div class="col-md-12">
+                        <%= form.label :email, class: "col-sm-2 col-form-label" %>
+                        <%= form.email_field :email, class: "form-control" %>
+                    </div>
+                    <div class="col-md-12">
+                        <%= form.label :password, class: "col-sm-2 col-form-label" %>
+                        <%= form.text_field :password, class: "form-control" %>
+                    </div>  
+                    <div class="col-md-12">
+                        <%= form.submit  class: "btn btn-primary" %>                  
+                    <% end %>  
+                        <%= link_to "Login", login_path, class: "btn btn-primary" %>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

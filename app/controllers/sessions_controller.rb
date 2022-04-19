@@ -21,4 +21,26 @@ class SessionsController < ApplicationController
         redirect_to root_path
     end
 
+    def new_faculty 
+        
+    end
+
+    def create_faculty 
+        admin = Admin.find_by(email: params[:session][:email])
+        if admin && admin.authenticate(params[:session][:email])
+           flash[:notice] = "Logged in successfully"
+           session[:admin_id] = admin.id
+            redirect_to admin
+        else    
+            flash[:notice] = "Unsuccessfull login"
+            render 'new'
+        end
+    end
+
+    def destroy_faculty 
+        session[:admin_id] = nil 
+        flash[:notice] = "Logged Out"
+        redirect_to root_path
+    end
+
 end
