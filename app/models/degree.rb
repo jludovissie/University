@@ -1,7 +1,4 @@
 class Degree < ApplicationRecord 
- has_many :students
- 
-
-   
-   
+ scope :business_majors, -> {"Length(major) < 5"}   
+ has_many :students   
 end

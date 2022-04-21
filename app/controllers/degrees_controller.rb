@@ -1,4 +1,5 @@
 class DegreesController < ApplicationController 
+    before_action :require_super_admin, only: [:edit, :update, :delete]
     def show 
         @degree = Degree.find(params[:id])
     end
@@ -12,7 +13,7 @@ class DegreesController < ApplicationController
     end
 
     def create 
-        @degree = Degree.new( department: params[:department], major: params[:major])
+        @degree = Degree.new(department: params[:department], major: params[:major])
         @degree.save 
         redirect_to @degree 
     end

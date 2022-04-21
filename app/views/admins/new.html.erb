@@ -5,6 +5,11 @@
                 <div class="form-items">
                     <h3>Create your Employee Account!</h3>
                     <p>Welcome to the Paducah Business Family.  Your are molding tomorrows business leaders</p>
+                    <% if @admin.errors.any? %>
+                    <% @admin.errors.full_messages.each do |message| %>
+                  <p><%= message  %></p>
+                    <% end %>
+                  <% end %>  
                     <%= form_with(model: @admin) do |form| %>
                     <div class="col-md-12">
                         <%= form.label :name, class: "col-sm-2 col-form-label" %>
@@ -23,9 +28,12 @@
                         <%= form.text_field :password, class: "form-control" %>
                     </div>  
                     <div class="col-md-12">
+                        <%= form.label :phone, class: "col-sm-2 col-form-label" %>
+                        <%= form.text_field :phone, class: "form-control" %>
+                    </div>       
+                    <div class="col-md-12">
                         <%= form.submit  class: "btn btn-primary" %>                  
                     <% end %>  
-                        <%= link_to "Login", login_path, class: "btn btn-primary" %>
                     </div>    
                 </div>
             </div>

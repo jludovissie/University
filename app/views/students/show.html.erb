@@ -1,40 +1,51 @@
-<div class="container-fluid bg-dark">
+<div class="container-fluid">
     <a id="topper" class="navbar-brand" href="#">
         <img src=https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100"
             height="88" class="d-inline-block align-text-top">
-        <%= @student.degree.major %> Major 
+        <%= @student.name %>
     </a>
 </div>
 
 
 <div class="card text-center">
     <div class="py-4 p-2">
-        <div> <img src="https://i.imgur.com/EnANUqj.jpg" class="rounded" width="100"> </div>
+        <div><img src="https://i.imgur.com/EnANUqj.jpg" class="rounded" width="100"></div>
         <div class="mt-3 d-flex flex-row justify-content-center">
-            <h5>
-                <%= @student.name %>
-            </h5> <span class="dots"><i class="fa fa-check"></i></span>
-        </div>
-        <h2><span>
-                <%= @student.degree.major %>
-            </span></h2>
-        <%= link_to "Edit #{@student.name}'s profile" , edit_student_path(@student), class:"btn btn-danger" %>
+        <h2><%= @student.degree.major %> Major</h2><span class="dots"><i class="fa fa-check"></i></span></div>
     </div>
     <div>
         <ul class="list-unstyled list">
-            <span class="font-weight-bold"><h2>Schedule</h2></span>
-                <li>
-                   <% @student.courses.each do |course|  %>
-                    <span class="mr-1" style="color:white"><%= course.name %><i class="fa fa-angle-right"></i> 
-                   <% end %>
-                </span>
-                </li>
-
-             
-             
- 
+            <span class="font-weight-bold"></span>
+            <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                  <th>Name:</th>
+                  <th>Class Number:</th>
+                  <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @student.courses.each do |course| %>
+                  <tr>
+                  <td><%= course.name %></td>
+                  <td><%= course.number  %></td>
+                  <td></td>
+                  </tr>
+                  <% end %>
+                </tbody>
+            </table>
         </ul>
-   
     </div>
 </div>
-</div>
+  <% if logged_in? %>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
+        <%= link_to "Change My Major", major_path, class:"btn btn-primary btn-lg px-4 gap-3 mt-3" %>
+        <%= link_to "Update Login Credentials", edit_student_path, class:"btn btn-outline-secondary btn-lg px-4 mt-3" %>
+        <%= link_to "Enroll in Classes", courses_path, class:"btn btn-primary btn-lg px-4 mt-3" %>
+    </div>
+  <% end %>
+
+
+
+ 
+    

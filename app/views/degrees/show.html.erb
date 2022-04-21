@@ -1,5 +1,16 @@
-<h1>Degrees</h1>
+<div class="container-fluid">
+    <a id="topper" class="navbar-brand" href="#">
+        <h1 style="color:white"><%= @degree.major %></h1>
+    </a>
+    <span class="d-block p-2 bg-primary text-white mt-4">
+        <%= @degree.description %>
+    </span>
+</div>
 
-<p><strong>Department:</strong><%= @degree.department %></p>
-<p><strong>Major:</strong><%= @degree.major %> </p>
+<span class="d-block p-2 text-white text-center mt-5">
+    <%= link_to "Contact Admissions", admins_path, class:"btn btn-light btn-lg px-4 gap-5" %>
+</span>
+
+   
+
 

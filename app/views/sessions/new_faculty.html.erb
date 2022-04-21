@@ -5,8 +5,12 @@
         <div class="form-holder">
           <div class="form-content">
             <div class="form-items">
-              <h3>Employee Login </h3>
-                  <%= form_with(scope: :session, url: login_faculty_path, local: true) do |form| %>
+              <h3>Employee Login </h3> 
+                  <%= form_with(scope: :session, url: login_faculty_path) do |form| %>
+                  <div class="col-md-12">
+                    <%= form.label :username, class: "col-sm-2 col-form-label" %>
+                    <%= form.text_field :username, class: "form-control" %>
+                  </div> 
                 <div class="col-md-12">
                   <%= form.label :email, class: "col-sm-2 col-form-label" %>
                   <%= form.email_field :email, class: "form-control" %>
@@ -19,7 +23,6 @@
                 <div class="col-md-12">
                   <%= form.submit "Login", class: "btn btn-primary" %>
                   <% end %>  
-                  <%= link_to "Apply Today", apply_path , class: "btn btn-primary" %>
                 </div>                     
               </div>
             </div>

@@ -1,19 +1,12 @@
-<h1>Available Degrees</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Department</th>
-            <th>Major</th>
-        </tr>    
+<table class="table" style="color:white">
+    <thead class="table-light">
+       <h1 style="color:white">College Of Business</h1> 
     </thead>
     <tbody>
         <% @degrees.each do |degree| %> 
         <tr>
-            <td><%= degree.department %></td>
             <td><%= degree.major %> </td>
             <td><%= link_to 'Show', degree_path(degree) %> </td>
-            <td><%= link_to 'Delete', degree_path(degree), method: :delete %></td>
         </tr>
         <% end %>
     </tbody>

@@ -5,18 +5,19 @@
   <title>University</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-        <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> true %>
-        <%= javascript_pack_tag 'application' , 'data-turbolinks-track'=> true %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> true %>
+  <%= javascript_pack_tag 'application' , 'data-turbolinks-track'=> true %>
 </head>
-
 <body class="d-flex flex-column">
   <%= render 'layouts/navigation' %>
-  <div id="page-content"> 
-  <%= yield %>
-  </div>
-
+    <div id="page-content"> 
+      <div class="text-center mt-5 text-uppercase font-italic">
+        <%= render 'layouts/messages' %>
+      </div>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    </div>
 </body>
 
 </html>

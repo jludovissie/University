@@ -8,7 +8,7 @@ class Student < ApplicationRecord
     validates :email, presence: true, length:{maximum: 25}, format:  {with: URI::MailTo::EMAIL_REGEXP }
     validates :gpa, presence: true
     validates :act_score, presence: true 
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true 
     validates :age, presence: true
     
     has_secure_password

@@ -9,8 +9,16 @@
     <li class="list-group-item">  <%= @admin.phone %></li>
     <li class="list-group-item">  <%= @admin.address %></li>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Schedule Classes</a>
-    <a href="#" class="card-link">Apply</a>
+  <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a><%= link_to 'Update Login Credentials', edit_admin_path, class: "card-link" %> </a>
+      <a><%= link_to 'Update Profile Information', edit_attributes_admin_path, class: "card-link" %> </a>
   </div>
+</div>      
+<% if admin_logged_in? %>
+<div class="d-grid gap-2 d-sm-flex justify-content-sm-center mt-3">
+    <%= link_to "Create a new course", new_course_path, class:"btn btn-primary btn-lg px-4 gap-3" %>
+    <%= link_to "Courses", courses_path, class:"btn btn-primary btn-lg px-4 gap-3" %>
 </div>
+<% end %>
+
+

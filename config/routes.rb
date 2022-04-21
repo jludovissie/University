@@ -23,5 +23,10 @@ Rails.application.routes.draw do
   resources :students, except: [:new]
   resources :courses 
   resources :admins, except: [:new]
- 
+  resources :admins do
+    member do
+      get :edit_attributes
+      put :update_attributes
+    end
+  end 
 end

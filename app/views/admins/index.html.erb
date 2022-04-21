@@ -4,18 +4,20 @@
       Faculty
     </a>
   </div>
-      <table class="table table-dark table-hover">
+      <table class="table table-hover" style="color:white">
         <thead>
           <tr>
           <th>Name:</th>
-          <th>Title:</th>
+          <th>Email:</th>
+          <th>Phone:</th>
           </tr>
         </thead>
         <tbody>
           <% @admins.each do |admin| %>
           <tr>
-          <td><%= link_to "#{@admins.name}" , admin_path(admin) %></td>
-      
+          <td><%= link_to "#{admin.name}", admin_path(admin) %></td>
+          <td><%= link_to "#{admin.email}", admin_path(admin) %></td>
+          <td><%= link_to "#{admin.phone}", admin_path(admin) %></td>
           </tr>
           <% end %>
         </tbody>

@@ -1,0 +1,39 @@
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <h3>Finish updating your profile!</h3>
+                    <% if @admin.errors.any? %>
+                      <% @admin.errors.full_messages.each do |message| %>
+                    <p>
+                      <%= message %>
+                    </p>
+                      <% end %>
+                    <% end %>
+                        <%= form_with(model: @admin, url:update_attributes_admin_path, method: :put) do |form| %>
+                            <div class="col-md-12">
+                                <%= form.label :title, class: "col-sm-2 col-form-label" %>
+                                <%= form.text_field :title, class: "form-control" %>
+                            </div>
+                            <div class="col-md-12">
+                                <%= form.label :phone, class: "col-sm-2 col-form-label" %>
+                                <%= form.text_field :phone, class: "form-control" %>
+                            </div>
+                            <div class="col-md-12">
+                                <%= form.label :address, class: "col-sm-2 col-form-label" %>
+                                <%= form.text_field :address, class: "form-control" %>
+                            </div>
+                            <div class="col-md-12">
+                                <%= form.label :description, class: "col-sm-2 col-form-label" %>
+                                <%= form.text_area :description, class: "form-control" %>
+                            </div>
+                            <div class="col-md-12">
+                                <%= form.submit class: "btn btn-primary" , method: :post %>
+                        <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,34 +1,36 @@
 <nav class="navbar navbar-dark">
-    <div class="container-fluid">
-      <a id ="topper" class="navbar-brand" href="#">
-      <img src= https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100" height="88" class="d-inline-block align-text-top">
-          Paducah Business School 
-      </a>
-    </div>  
-    <div id="nav" class="container-fluid">
-        <% if logged_in? %>
-        <li class="nav-item">
-          <%= link_to current_student.username , student_path(current_student), class:"nav_link" %>
+  <div class="container-fluid">
+    <a id="topper" class="navbar-brand" href="#">
+      <img src=https://bcassetcdn.com/public/blog/wp-content/uploads/2019/11/02142653/Rabbit.jpg alt="" width="100"
+        height="88" class="d-inline-block align-text-top">
+        Paducah Business School
+    </a>
+  </div>
+  <div id="nav" class="container-fluid">
+        <li>
+          <%= link_to 'Home', root_path %>
         </li>
-          <%= link_to "Log out" , logout_path, class: "nav-link", method: :delete%>
-        <% else %>
-          <%= link_to "Log in" , login_path, class: "nav-link" %>
-        <% end %>  
-      </li>
       <% if logged_in? %>
-      <li class="nav-item">
-        <%= link_to 'Students', students_path, class:'nav-item' %> 
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Major', major_path, class: 'nav-item' %>
-      </li>
+        <li><%= link_to current_student.username , student_path(current_student), class:"nav_link" %></li>
+        <li>
+          <%= link_to "Log out" , logout_path, method: :delete%>
+      <% else %>
+          <%= link_to "Student Login" , login_path %>
       <% end %>
-      <li class="nav-item">
-        <%= link_to "Apply Today" , apply_path %>
-      </li>
-    
-      <li class="nav-item">
-        <%= link_to "New Employee Account", create_employee_account_path %>
-      </li>
-    </div>  
-    </nav>
+        </li>
+      <% if admin_logged_in? %>
+      <li><%= link_to current_admin.username, admin_path(current_admin), class:"nav_link" %></li>
+      <li>
+          <%= link_to "Employee Log Out", logout_faculty_path, method: :delete %>
+      <% else %>
+          <%= link_to "Employee Login", login_faculty_path %>
+      <% end %>
+        </li>
+        <li><%= link_to "Admissions Department", admins_path %></li>
+      <% if logged_in? %>
+        <li><%= link_to 'Students' , students_path %></li>
+      <% end %>
+        <li><%= link_to "New Employee Account" , create_employee_account_path %></li>
+        <li><%= link_to "Apply", apply_path %></li>
+  </div>
+</nav>

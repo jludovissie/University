@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController 
+    before_action :require_student, only: [:edit, :update]
+    
     def index 
         @students = Student.all
     end
@@ -38,10 +40,7 @@ class StudentsController < ApplicationController
     end
 
     def destroy 
-        # @student.destroy 
-        # session[:user_id] = nil if @ == current_user
-        # flash[:notice] = "Account and all associated articles successfully deleted"
-        # redirect_to root_path
+      
     end
 
     def degree_list
@@ -52,7 +51,7 @@ class StudentsController < ApplicationController
     def major_select 
         if helpers.current_student.update(degree_id: params[:major])
             flash[:success] = "Congratulations, you just selected a major!"
-            redirect_to courses_path
+            redirect_to major_path
         else  
             flash[:notice] = "Did not work" 
             redirect_to root_path    
@@ -64,7 +63,7 @@ class StudentsController < ApplicationController
     private 
 
     def student_params 
-        params.require(:student).permit(:username, :email, :age, :name, :act_score, :gpa, :password)
+        params.require(:student).permit(:username, :email, :age, :name, :act_score, :gpa, :password, :degree_id)
     end
 end    
 
